@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 28, 2019 5:31:39 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sheet2" dynamic-insert="false" dynamic-update="false" mutable="true" name="quanLi.model.Khoahoc" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="khoahoc">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="quanLi.model.Giangvien" embed-xml="true" fetch="select" insert="true" name="giangvien" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="maGV" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="thoiGianHoc" optimistic-lock="true" type="int" unique="false">
+            <column name="thoiGianHoc" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="chiPhi" optimistic-lock="true" type="int" unique="false">
+            <column name="chiPhi" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="loai" optimistic-lock="true" type="string" unique="false">
+            <column name="loai" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="dangkis" optimistic-lock="true" sort="unsorted" table="dangki">
+            <key on-delete="noaction">
+                <column name="idKhoahoc" not-null="true"/>
+            </key>
+            <one-to-many class="quanLi.model.Dangki" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

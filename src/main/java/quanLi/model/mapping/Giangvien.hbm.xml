@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 28, 2019 5:31:39 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sheet2" dynamic-insert="false" dynamic-update="false" mutable="true" name="quanLi.model.Giangvien" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="giangvien">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="age" optimistic-lock="true" type="int" unique="false">
+            <column name="age" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="khoahocs" optimistic-lock="true" sort="unsorted" table="khoahoc">
+            <key on-delete="noaction">
+                <column name="maGV" not-null="true"/>
+            </key>
+            <one-to-many class="quanLi.model.Khoahoc" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
