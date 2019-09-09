@@ -1,5 +1,5 @@
 package quanLi.dao;
 
-public interface StudentDAO<E> extends BaseDAO<E>{
-	
+public interface StudentDAO<E> extends BaseDAO<E> {
+
 }

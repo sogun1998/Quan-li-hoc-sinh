@@ -59,5 +59,9 @@ public class Student implements java.io.Serializable {
 	public void setDangkis(Set dangkis) {
 		this.dangkis = dangkis;
 	}
+	@Override
+	public String toString() {
+		return "Name ="+name+"";
+	}
 
 }

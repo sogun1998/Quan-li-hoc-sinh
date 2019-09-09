@@ -1,6 +1,11 @@
 package quanLi.dao;
 
-import quanLi.model.Student;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-public class StudentDAOImple extends BaseDAOImple<Student> implements StudentDAO<Student>{
+import quanLi.model.Student;
+@Repository
+@Transactional(rollbackFor=Exception.class)
+public class StudentDAOImple extends BaseDAOImple<Student> implements StudentDAO<Student> {
+
 }
